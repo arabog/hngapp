@@ -25,7 +25,7 @@ app.get('/', async (req, res)=>{
 	try {
 		const userData = await db.collection('infos')
 		
-		return res.render('index.html', { info: userData})
+		res.render('index.ejs', { info: userData})
 	} catch (err) {
 		return res.status(500).json(err)
 	}
