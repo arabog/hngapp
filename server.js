@@ -21,17 +21,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 
-// app.get('/', async (req, res)=>{
-// 	const userData = await db.collection('todos')
-	
-// 	res.render('index.ejs', { info: userData})
-// })
-
 app.get('/', async (req, res)=>{
 	try {
 		const userData = await db.collection('infos')
 		
-		return res.render('index.ejs', { info: userData})
+		return res.render('index.html', { info: userData})
 	} catch (err) {
 		return res.status(500).json(err)
 	}
